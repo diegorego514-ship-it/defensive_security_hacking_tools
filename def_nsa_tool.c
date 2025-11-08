@@ -1,6 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+{
+
+}
+
 //Implementando auditioria de segurança de infraestruturas para redes locais e internas
 #define TARGET IPADDRESS 168.87.125.215
 
@@ -9,16 +13,20 @@ tipo_de_retorno nome_do_alvo(parametros)
 {
     comandos...
 }
+
 */
 //Função localizar possíveis alvos
 {
+	
+}
+
 int ext (data1 * data2);
 int ext;
 int ext = data1 * data2;
 return 0; //retornando o resultado como sucedido
 
 int main(void)
-{
+
     int data = extracted data; //arrecadando dados extraidos sobre dinheiro após extorção de dados
     float ex1 = 6.79; //float é uma variável que possui dados extraídos ou extorquidos
     char data extorted;//variável do tipo dado extorquído
