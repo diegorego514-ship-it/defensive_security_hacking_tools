@@ -16,9 +16,8 @@ tipo_de_retorno nome_do_alvo(parametros)
 
 */
 //Função localizar possíveis alvos
+
 {
-	
-}
 
 int ext (data1 * data2);
 int ext;
