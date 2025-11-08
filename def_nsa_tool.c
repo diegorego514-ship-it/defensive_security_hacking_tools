@@ -11,9 +11,10 @@ tipo_de_retorno nome_do_alvo(parametros)
 }
 */
 //Função localizar possíveis alvos
-int extração ; enum dados(enum ext1, ext2); //Extraí dados de alvos conectados através de uma backdoor ou conexão interna/local e coleta dados
+{
+int ext (data1 * data2);
 int ext;
-int ext = ext1 * ext2;
+int ext = data1 * data2;
 return 0; //retornando o resultado como sucedido
 
 int main(void)
@@ -25,8 +26,7 @@ int main(void)
     double ex1 = 45.3468473467; //variável com a quantidade de valor dos dados extorquídos
     int ext1, ext2, data, extracted data, data extorted;
     float ext1, ext, extorted data,
-
-    /*
+/*
     //Arrecadação de dados extorquidos de alvos potencíais
     printf("extorted data soldout\n");
     printf("Exibindo a quantidade de dados extorquídos dos alvos%f\n ");
@@ -103,3 +103,4 @@ int main(void)
 	     {
 		 printf("Dados Extraídos!\n");
              }
+*/
