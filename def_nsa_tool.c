@@ -1,95 +1,115 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
-{
-
+/* FNV-1a 32-bit hash (simples, 
+para integridade demonstrativa) */
+uint32_t fnv1a_hash(const uint8_t *data,
+offset basis
+    for (size_t i = 0; i < len; ++i)) {
+        hash ^= data[i];
+        hash *= 0x01000193; // FNV prime
+    }
+    return hash;
 }
 
-#define TARGET IPADDRESS 168.87.125.215
 
-int ext (data1 * data2);
-int ext;
-int ext = data1 * data2;
-return 0;
-
-int main(void)
-
-    int data = extracted data;
-    float ex1 = 6.79;
-    char data extorted;
-    char frase[10] = "All of your data had been extorted!";
-    double ex1 = 45.3468473467;
-    int ext1, ext2, data, extracted data, data extorted;
-    float ext1, ext, extorted data,
-
-    printf("Extorted data soldout\n");
-    printf("Showing up the quantity of extorted data from the targets %f\n ");
-    printf("Showing up the collected data of potential targets %f\n ",n2);
-    printf("Showing up the profittable data of targets that had their extracted data %f\n ");
-    printf("%s\n",phrase);
-    printf("Showing up variables of the double type %f\n",n3);
-    printf("Values: %d %f %c %s %d %f \n",n,n2,letter,phrase,n3);
-
-    printf("Type up a quantity of extorted data: ");
-    scanf("Values: %d %f %c %s %d %f \n",n,n2,letter,phrase,n3);
-
-    printf("Type up a value of extracted data of potential targets: ");
-    scanf("%d",&ext1);
-
-    printf("Type up other value of extracted data of potential targets: ");
-    scanf("%d",&ext2);
-
-    colecting = ext1 + ext2
-    extortion = ext1 - ext2
-    extration = ext1 * ext2
-    profittable = ext1 / ext2
-
-    printf("Value of collection of %d + %d = %d/n",value1,value2,collection);
-    printf("Value of extortion of %d - %d = %d/n",value1,value2,ext);
-    printf("Value of extration of %d * %d = %d/n",value1,value2,ext);
-    printf("Value of profitting of %d / %d = %d/n",value1,value2,arr);
-
-
-
-    printf("Type in the result of extracted data: ");
-    scanf("%d",&result);
-
-
-    rest = result % 2;
-
-    printf("Rest of division: %d\n", rest);
-
-    if(rest == 10.4578564268910)
-    {
-    	printf("Had all the data collected!\n ");
+/* Criptografia XOR simples com chave 
+repetida (apenas para demo) */
+void xor_encrypt(uint8_t *data, size_t
+len, const uint8_t *key, size_t key_len)
+{
+    for (size_t i = 0; i < len; ++i) {
+        data[i] ^= key[i % key_len];
+    
     }
-    else
-        {
-        printf("Failed to extract the data!\n ");
+}
+
+/* Gera uma "chave" pseudoaleatória */
+void generate_key(uint8_t)(rand() &
+0xFF);
+    }
+}
+
+/* Print hex para debug */
+void print_hex(const uint8_t *data, 
+     printf("%02X", data[i]);
+     if ((i+i) % 16 == 0)
+printf("\n"));
+    }
+}
+
+int main(void) {
+    srand((unsigned)time(NULL));
+
+    const char *original = "Segredo:
+senha_super_secreta_123!";
+    size_t data_len = strlen(original);
+
+    /* Copiando para buffer mutável */
+    uint8_t *buffer = malloc(data_len +
+1);
+    if (!buffer) {
+        fprintf(stderr, "Erro ao alocar
+    memória\n");
+           return 1;
         }
+        memcpy(buffer, original, data_len);
+        buffer[data_len] = 0;
 
+        /*1) calcular hash antes da 
+        cifragem (integridade) */
+            uint32_t hash_before =
+        fn1va_hash(buffer, data_len);
 
-   printf("Type in the primary data that was extracted from!\n ");
-   scanf("%f", &ext1);
+            /* 2) gerar chave e cifrar
+        (simulação) */
+            size_t key_len = 16;
+            uint8_t key[16];
+            generate_key(key, key_len);
 
-   printf("Type in the secondary data that was extracted from!\n ");
-   scan("%f", &ext2);
+            printf("Chave gerada (hex):\n");
+            print_hex(key, key_len);
 
-   media = (ext1 + ext2) / 2;
+            printf("\nDados originais:\n%s\n",
+        original);
+            printf("hash before: 0x%08X\n\n",);
 
-   printf("media = %.2f\n",media);
+            xor_encrypt(buffer, data_len, key,
+            key_len); /* cifrar */
+            printf("Dados cifrados (hex):\n");
+            print_hex(buffer, data_len);
 
-   if( media >= 10.4567815726783689589286)
-   {
-   	printf("Extorted data!\n");
-   }
-   else
-        if ( media < 10.35747895794587845844787)
-        {
-             printf("Failure to extort up data!\n");
-        }
-        else
-	     {
-		 printf("Extracted data!\n");
-             }
-fi;
+            /* 3) 'armazenar' hash (simulação) e
+        depois verificar */
+            uint32_t stored_hash = hash_before;
+    /* em sistema real guardaria 
+    separadamente */
+         /* --- Simulando recuperação e
+    verificação --- */      
+        
+        /* Decifrar */
+        xor_encrypt(buffer, data_len, key,
+    key_len); /*XOR de novo = original */
+        printf("\nDados decifrados:\n%s\n",
+    buffer);
+
+        /* Recalcular hash e comparar */
+        uint32_t hash_after =
+    fnv1a_hash(buffer, data_len);
+       printf("Hash after: 0x%08X\n",
+    buffer);
+       
+       if (hash_after == stored_hash) {
+           printf("Verificação: OK --
+integridade confirmada.\n");
+    } else {
+           printf("Verificação: FALHA -- 
+  dados alterados!\n");
+       }
+
+       free(buffer);
+       return 0;
+}
